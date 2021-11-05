@@ -1,0 +1,25 @@
+<?php
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+// Create database
+$sql = "CREATE DATABASE students";
+if ($conn->query($sql) === TRUE) {
+  echo "Table MyGuests created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+
+
+
+$conn->close();
+?>
