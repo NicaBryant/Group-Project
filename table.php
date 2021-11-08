@@ -1,31 +1,30 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = "students";/* Put your database name */
-
-/* Create connection */
-$conn = new mysqli($servername, $username, $password, $dbname);
-/* Check connection*/
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-/* sql to create table */
-
-$sql = "CREATE  TABLE record (
-        student_id INT(10)  PRIMARY KEY, 
-        Name VARCHAR(30),
-		Birthday DATE ,
-        Course VARCHAR(30) ,
-        Email VARCHAR(50)
-        )";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Table test created successfully";
-}
- else {
-    echo "Error creating table: " . $conn->error;
-}
-$conn->close();
+ $conn= mysqli_connect("localhost","root", "", "record");
+ 
+ if($conn === false){
+	 die("ERROR: Couild not connect". mysqli_connect_error());
+ }
+ $sql="CREATE TABLE student(
+	studentId INT(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	fullName VARCHAR(50) NOT NULL,
+	birthday VARCHAR(30) NOT NULL,
+	course VARCHAR(30) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE
+ )";
+ 
+ if(mysqli_query($conn, $sql)){
+	 echo "Table created successfully";
+ }
+ else{
+	 echo "ERROR: could not able to excute $sql." . mysqli_error($conn);
+ }
+ 
+ mysqli_close($conn);
 ?>
+<html>
+<body>
+   <a href="http://localhost/index.php">
+     <input type="submit"/>
+   </a>
+</body>
+</html>
