@@ -12,7 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 // Create database
-$sql = "CREATE DATABASE students";
+$sql = "CREATE DATABASE record";
 if ($conn->query($sql) === TRUE) {
   echo "Table MyGuests created successfully";
 } else {
@@ -23,3 +23,10 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+<html>
+<body>
+   <a href="http://localhost/table.php">
+     <input type="submit"/>
+   </a>
+</body>
+</html>
