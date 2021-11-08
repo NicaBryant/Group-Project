@@ -7,7 +7,7 @@
 
 <body>
 	<center>
-		<h1>Storing Form data in Database</h1>
+		<h1>Add Records</h1>
 
 		<form action="insert.php" method="post">
 			
