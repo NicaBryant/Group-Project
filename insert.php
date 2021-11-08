@@ -49,6 +49,9 @@
 		mysqli_close($conn);
 		?>
 	</center>
+	 <a href="http://localhost/index.php">
+     <input type="submit" value= "return"/>
+   </a>
 </body>
 
 </html>
